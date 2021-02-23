@@ -24,3 +24,12 @@ Route::get('articles', function(){
         'response'=>App\Article::all()
     ], 200);
 });
+
+// Route::get('articles', 'Api\ArticleController@article');
+
+Route::get('categories', function(){
+    return response()->json([
+        'success'=>true,
+        'response'=>App\Category::all()
+    ], 200);
+});

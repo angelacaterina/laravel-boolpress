@@ -7,6 +7,6 @@
         <title>Api</title>
     </head>
     <body>
-        <h1>All articles from the api</h1>
+        <h1>All categories from the api</h1>
     </body>
 </html>
