@@ -33,3 +33,10 @@ Route::get('categories', function(){
         'response'=>App\Category::all()
     ], 200);
 });
+
+Route::get('tags', function(){
+    return response()->json([
+        'success'=>true,
+        'response'=>App\Tag::all()
+    ], 200);
+});
