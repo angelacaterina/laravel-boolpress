@@ -9,7 +9,7 @@
 @endsection
 
 @section('main')
-    <main id="main_content_articles" class="full-height">
+    <main id="main_content_articles">
         <h1>All articles from the api</h1>
         <div id="app">
             <article-component></article-component>
