@@ -19,7 +19,7 @@ class ArticleSeeder extends Seeder
             $newArticle = new Article();
             $newArticle->title = $faker->sentence();
             $newArticle->subtitle = $faker->sentence();
-            $newArticle->body = $faker->text();
+            $newArticle->body = $faker->paragraph(10);
             $newArticle->author = $faker->name();
             $newArticle->category = $faker->word();
             $newArticle->save();
