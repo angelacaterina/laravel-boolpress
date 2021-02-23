@@ -3,6 +3,7 @@
                 <p>&copy; Copyright 2021</p>
             </div>
         </footer>
-        <link rel="stylesheet" href="{{ asset('js/app.js') }}">
+
+        <script src="{{asset('js/app.js')}}" charset="utf-8"></script>
     </body>
 </html>
