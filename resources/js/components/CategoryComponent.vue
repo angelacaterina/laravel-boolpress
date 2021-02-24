@@ -1,23 +1,30 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <aside class="col-md-4">
+        <h1>Categories</h1>
+        <ul>
+            <li v-for="category in categories">
+                {{category.genre}}
+            </li>
+        </ul>
+    </aside>
 </template>
 
 <script>
     export default {
+        data(){
+            return {
+                categories:""
+            }
+        },
+
         mounted() {
             console.log('Component mounted.')
+            axios.get('api/categories').then(resp => {
+                console.log(resp.data.response);
+                this.categories = resp.data.response;
+            }).catch(error => {
+                console.log(error);
+            })
         }
     }
 </script>

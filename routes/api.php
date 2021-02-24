@@ -18,15 +18,18 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('articles', function(){
-    return response()->json([
-        'success'=>true,
-        'response'=>App\Article::all()
-    ], 200);
-});
+// COMMENTARE solo dopo aver CREATO API/ArticleController
+// Route::get('articles', function(){
+//     return response()->json([
+//         'success'=>true,
+//         'response'=>App\Article::all()
+//     ], 200);
+// });
 
-// Route::get('articles', 'Api\ArticleController@article');
+Route::get('articles', 'Api\ArticleController@index');
 
+
+// COMMENTARE solo dopo aver CREATO API/CateogoryController
 Route::get('categories', function(){
     return response()->json([
         'success'=>true,
@@ -34,9 +37,15 @@ Route::get('categories', function(){
     ], 200);
 });
 
+// Route::get('categories', 'Api\CateogoryController@index');
+
+
+// COMMENTARE solo dopo aver CREATO API/TagController
 Route::get('tags', function(){
     return response()->json([
         'success'=>true,
         'response'=>App\Tag::all()
     ], 200);
 });
+
+// Route::get('tags', 'Api\TagController@index');

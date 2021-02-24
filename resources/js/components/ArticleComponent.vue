@@ -1,8 +1,7 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
+    
             <div class="col-md-8">
-                <div class="card" v-for="article in articles" >
+                <div class="card" v-for="article in articles">
                     <div class="card-header">
                         <div>
                             Title: {{ article.title }}
@@ -26,8 +25,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+      
 </template>
 
 <script>
