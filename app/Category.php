@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $fillable = ['genre', 'over_18'];
+
     /**
      * Get all of the articles for the Category
      *
