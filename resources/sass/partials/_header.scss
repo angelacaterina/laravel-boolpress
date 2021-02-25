@@ -10,6 +10,9 @@ header#site_header {
             color: white;
             font-weight: bold;
             text-decoration: none;
+            &.active2{
+                color: #ffed4a;       
+            }
             &.active,
             &:hover{
             color: #FC7523FC;       

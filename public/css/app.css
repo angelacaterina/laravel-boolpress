@@ -11011,6 +11011,10 @@ header#site_header nav a {
   text-decoration: none;
 }
 
+header#site_header nav a.active2 {
+  color: #ffed4a;
+}
+
 header#site_header nav a.active,
 header#site_header nav a:hover {
   color: #FC7523FC;
