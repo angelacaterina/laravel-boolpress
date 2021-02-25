@@ -1,7 +1,7 @@
 <template>
     
             <div class="col-md-8">
-                <div class="card" v-for="article in articles">
+                <div class="card" v-for="article in articles" >
                     <div class="card-header">
                         <div>
                             Title: {{ article.title }}
@@ -20,7 +20,7 @@
                             Author: {{ article.author }}
                         </div>
                         <div>
-                            Category: {{ article.category }}
+                            Category: {{ article.category_id }}
                         </div>
                     </div>
                 </div>
@@ -32,12 +32,20 @@
     export default {
         data(){
             return {
-                articles:""
+                articles:"",
+                categories:""
             }
         },
 
         mounted() {
             console.log('Component mounted.')
+            axios.get('api/categories').then(resp => {
+                console.log(resp.data.response);
+                this.categories = resp.data.response;
+            }).catch(error => {
+                console.log(error);
+            })
+
             axios.get('api/articles').then(resp => {
                 console.log(resp.data.response);
                 this.articles = resp.data.response;

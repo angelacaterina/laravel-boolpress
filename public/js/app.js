@@ -1941,13 +1941,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      articles: ""
+      articles: "",
+      categories: ""
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     console.log('Component mounted.');
+    axios.get('api/categories').then(function (resp) {
+      console.log(resp.data.response);
+      _this.categories = resp.data.response;
+    })["catch"](function (error) {
+      console.log(error);
+    });
     axios.get('api/articles').then(function (resp) {
       console.log(resp.data.response);
       _this.articles = resp.data.response;
@@ -38402,7 +38409,7 @@ var render = function() {
           _c("div", [
             _vm._v(
               "\n                Category: " +
-                _vm._s(article.category) +
+                _vm._s(article.category_id) +
                 "\n            "
             )
           ])
