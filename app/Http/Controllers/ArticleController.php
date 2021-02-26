@@ -79,15 +79,13 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        // $validatedData = $request->validate([
-        //     'title'=>'required',
-        //     'subtitle'=>'required',
-        //     'body'=>'required',
-        //     'author'=>'required',            
-        // ]);
-        // Article::create($validatedData);
-
-        $article->update($request->all());
+        $validatedData = $request->validate([
+            'title'=>'required',
+            'subtitle'=>'required',
+            'body'=>'required',
+            'author'=>'required',            
+        ]);
+        $article->update($validatedData);
 
         return redirect()->route('articles.index');
     }

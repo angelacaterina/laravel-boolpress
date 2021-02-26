@@ -20,36 +20,36 @@
             <label for="title">Title</label>
             <input class="form-control" type="text" name="title" id="title" value="{{$article->title}}">
         </div>
-        {{-- @error('title')
+        @error('title')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror
 
         {{-- subtitle --}}
         <div class="form-group">
             <label for="subtitle">Subtitle</label>
             <input class="form-control" type="text" name="subtitle" id="subtitle" value="{{$article->subtitle}}">
         </div>
-        {{-- @error('subtitle')
+        @error('subtitle')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror
 
         {{-- body --}}
         <div class="form-group">
             <label for="body">Body</label>
             <textarea class="form-control" name="body" id="body" rows="3">{{$article->body}}</textarea>
         </div>
-        {{-- @error('body')
+        @error('body')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror
 
         {{-- author --}}
         <div class="form-group">
             <label for="author">Author</label>
             <input class="form-control" type="text" name="author" id="author" value="{{$article->author}}">
         </div>
-        {{-- @error('author')
+        @error('author')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

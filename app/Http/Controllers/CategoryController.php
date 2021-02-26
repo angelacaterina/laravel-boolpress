@@ -76,7 +76,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $category->update($request->all());
+        $validatedData = $request->validate([
+            'genre'=>'required',
+            'over_18'=>'required',
+        ]);
+        $category->update($validatedData);
 
         return redirect()->route('categories.index');
     }
