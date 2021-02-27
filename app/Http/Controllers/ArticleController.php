@@ -28,10 +28,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        // $categories = Category::all();
+        $categories = Category::all();
         $tags = Tag::all();
 
-        return view('articles.create', compact('tags'));
+        return view('articles.create', compact('categories','tags'));
     }
 
     /**
@@ -93,7 +93,8 @@ class ArticleController extends Controller
             'title'=>'required',
             'subtitle'=>'required',
             'body'=>'required',
-            'author'=>'required',            
+            'author'=>'required',
+            'tags' => 'exists:tags,id',          
         ]);
         $article->update($validatedData);
         $article->tags()->sync($request->tags);

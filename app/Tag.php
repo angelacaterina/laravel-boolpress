@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    protected $fillable = ['name', 'views', 'topic'];
+
     /**
      * The articles that belong to the Tag
      *
