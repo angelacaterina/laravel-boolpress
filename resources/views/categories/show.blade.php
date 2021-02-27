@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title')
-    Articles Show
+    Category Show
 @endsection
 
 @section('header')

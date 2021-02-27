@@ -17,7 +17,7 @@
 
         {{-- name --}}
         <div class="form-group">
-            <label for="title">Title</label>
+            <label for="name">Name</label>
             <input class="form-control" type="text" name="name" id="name" value="{{$tag->name}}">
         </div>
         @error('name')
@@ -26,7 +26,7 @@
 
         {{-- views --}}
         <div class="form-group">
-            <label for="views">views</label>
+            <label for="views">Views</label>
             <input class="form-control" type="text" name="views" id="views" value="{{$tag->views}}">
         </div>
         @error('views')

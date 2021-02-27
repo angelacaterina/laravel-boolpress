@@ -33,13 +33,13 @@
                     <a href="{{route('tags.show', ['tag'=>$value->id])}}" class="btn btn-primary">View</a>
                     <a href="{{route('tags.edit', ['tag'=>$value->id])}}" class="btn btn-warning">Edit</a>
                     <!-- MODO 1: Eliminazione istantanea del Post -->
-                    {{-- <form action="{{ route('articles.destroy', ['article'=> $value->id]) }}" method="post">
+                    {{-- <form action="{{ route('tags.destroy', ['tag'=> $value->id]) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form> --}}
 
-                    <!-- MODO 2: Eliminazine con conferma del Post -->
+                    <!-- MODO 2: Eliminazine con conferma del tag -->
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#destroy-{{$value->id}}">
                     Delete
