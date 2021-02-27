@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -26,7 +28,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        // $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('articles.create', compact('tags'));
     }
 
     /**
@@ -38,14 +43,18 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title'=>'required',
-            'subtitle'=>'required',
-            'body'=>'required',
-            'author'=>'required',
+            'title' => 'required',
+            'subtitle' => 'required',
+            'body' => 'required',
+            'author' => 'required',
+            'tags' => 'exists:tags,id',
         ]);
         Article::create($validatedData);
 
-        return redirect()->route('articles.index');
+        $new_article = Article::orderBy('id', 'desc')->first();
+        $new_article->tags()->attach($request->tags);
+
+        return redirect()->route('articles.index', $new_article);
     }
 
     /**
@@ -67,7 +76,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $tags = Tag::all();
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     /**
@@ -86,6 +96,7 @@ class ArticleController extends Controller
             'author'=>'required',            
         ]);
         $article->update($validatedData);
+        $article->tags()->sync($request->tags);
 
         return redirect()->route('articles.index');
     }

@@ -51,6 +51,21 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
+        {{-- tag --}}
+        <div class="form-group">
+            <label for="tags">Tags</label>
+            <select class="form-control" name="tags[]" id="tags" multiple>
+                @if ($tags)
+                    @foreach($tags as $tag)
+                        <option value="{{ $tag->id}}" {{ $article->tags->contains($tag) ? 'selected' : ''}}>{{ $tag->name}}</option>
+                    @endforeach
+                @endif
+            </select>
+        </div>
+        @error('tags')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
    
