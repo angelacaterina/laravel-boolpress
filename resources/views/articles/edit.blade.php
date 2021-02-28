@@ -51,6 +51,19 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
+        {{-- category --}}
+        <div class="form-group">
+            <label for="category_id">Category</label>
+            <select class="form-control" name="category_id" id="category_id">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id}}">{{ $category->genre}}</option>
+                @endforeach
+            </select>
+        </div>
+        @error('category')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         {{-- tag --}}
         <div class="form-group">
             <label for="tags">Tags</label>

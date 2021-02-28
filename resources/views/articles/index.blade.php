@@ -21,7 +21,7 @@
                 <th>body</th>
                 <th>author</th>
                 <th>category</th>
-                {{-- <th>tag</th> --}}
+                <th>tags</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -34,7 +34,14 @@
                 <td>{{$value->body}}</td>
                 <td>{{$value->author}}</td>
                 <td>{{$value->category['genre']}}</td>
-                {{-- <td>{{$value->tag['name']}}</td> --}}
+                <td>@if (count($value->tags) > 0)
+                        @foreach ($value->tags as $tag)
+                            <span>{{ $tag->name }}</span>
+                        @endforeach
+                    @else
+                        <span>N/A</span>
+                    @endif
+                </td>
                 <td>
                     <a href="{{route('articles.show', ['article'=>$value->id])}}" class="btn btn-primary">View</a>
                     <a href="{{route('articles.edit', ['article'=>$value->id])}}" class="btn btn-warning">Edit</a>

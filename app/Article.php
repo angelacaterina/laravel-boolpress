@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'subtitle', 'body', 'author'];
+    protected $fillable = ['title', 'subtitle', 'body', 'author', 'category_id'];
 
    /**
     * Get the category that owns the Article

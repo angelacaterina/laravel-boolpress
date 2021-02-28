@@ -47,6 +47,7 @@ class ArticleController extends Controller
             'subtitle' => 'required',
             'body' => 'required',
             'author' => 'required',
+            'category_id'=>'required',
             'tags' => 'exists:tags,id',
         ]);
         Article::create($validatedData);
@@ -76,8 +77,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        $categories = Category::all();
         $tags = Tag::all();
-        return view('articles.edit', compact('article', 'tags'));
+        return view('articles.edit', compact('article', 'categories','tags'));
     }
 
     /**
@@ -94,6 +96,7 @@ class ArticleController extends Controller
             'subtitle'=>'required',
             'body'=>'required',
             'author'=>'required',
+            'category_id'=>'required',
             'tags' => 'exists:tags,id',          
         ]);
         $article->update($validatedData);

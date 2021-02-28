@@ -12,7 +12,7 @@
 @section('main')
     <h1>Create a new Article</h1>
 
-    {{-- @if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -20,7 +20,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif --}}
+    @endif
 
     <form action="{{route('articles.store')}}" method="post">
         @csrf
@@ -61,9 +61,9 @@
         @enderror
 
         {{-- category --}}
-        {{-- <div class="form-group">
-            <label for="category">Category</label>
-            <select class="form-control" name="category" id="category">
+        <div class="form-group">
+            <label for="category_id">Category</label>
+            <select class="form-control" name="category_id" id="category_id">
                 @foreach($categories as $category)
                     <option value="{{ $category->id}}">{{ $category->genre}}</option>
                 @endforeach
@@ -71,7 +71,7 @@
         </div>
         @error('category')
             <div class="alert alert-danger">{{ $message }}</div>
-        @enderror --}}
+        @enderror
 
         {{-- tag --}}
         <div class="form-group">

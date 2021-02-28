@@ -12,7 +12,7 @@ Category Create
 @section('main')
     <h1>Create a new Category</h1>
 
-    {{-- @if ($errors->any())
+    @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -20,7 +20,7 @@ Category Create
                 @endforeach
             </ul>
         </div>
-    @endif --}}
+    @endif
 
     <form action="{{route('categories.store')}}" method="post">
         @csrf
