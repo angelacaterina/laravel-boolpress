@@ -30,8 +30,8 @@
                 <td>{{$value->views}}</td>
                 <td>{{$value->topic}}</td>
                 <td>
-                    <a href="{{route('tags.show', ['tag'=>$value->id])}}" class="btn btn-primary">View</a>
-                    <a href="{{route('tags.edit', ['tag'=>$value->id])}}" class="btn btn-warning">Edit</a>
+                    <a href="{{route('tags.show', ['tag'=>$value->id])}}" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                    <a href="{{route('tags.edit', ['tag'=>$value->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                     <!-- MODO 1: Eliminazione istantanea del Post -->
                     {{-- <form action="{{ route('tags.destroy', ['tag'=> $value->id]) }}" method="post">
                         @csrf
@@ -42,7 +42,7 @@
                     <!-- MODO 2: Eliminazine con conferma del tag -->
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#destroy-{{$value->id}}">
-                    Delete
+                        <i class="fas fa-trash-alt"></i>
                     </button>
                     
                     <!-- Modal -->

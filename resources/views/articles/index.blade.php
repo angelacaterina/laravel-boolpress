@@ -20,7 +20,8 @@
                 <th>subtitle</th>
                 <th>body</th>
                 <th>author</th>
-                <th>category</th>
+                <th>category Genre</th>
+                <th>category Over 18</th>
                 <th>tags</th>
                 <th>actions</th>
             </tr>
@@ -34,6 +35,7 @@
                 <td>{{$value->body}}</td>
                 <td>{{$value->author}}</td>
                 <td>{{$value->category['genre']}}</td>
+                <td>{{$value->category ? $value->category['over_18'] ? 'si' : 'no' : ''}}</td>
                 <td>@if (count($value->tags) > 0)
                         @foreach ($value->tags as $tag)
                             <span>{{ $tag->name }}</span>
@@ -43,8 +45,8 @@
                     @endif
                 </td>
                 <td>
-                    <a href="{{route('articles.show', ['article'=>$value->id])}}" class="btn btn-primary">View</a>
-                    <a href="{{route('articles.edit', ['article'=>$value->id])}}" class="btn btn-warning">Edit</a>
+                    <a href="{{route('articles.show', ['article'=>$value->id])}}" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                    <a href="{{route('articles.edit', ['article'=>$value->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                     <!-- MODO 1: Eliminazione istantanea del Post -->
                     {{-- <form action="{{ route('articles.destroy', ['article'=> $value->id]) }}" method="post">
                         @csrf
@@ -55,7 +57,7 @@
                     <!-- MODO 2: Eliminazine con conferma del Post -->
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#destroy-{{$value->id}}">
-                    Delete
+                        <i class="fas fa-trash-alt"></i>
                     </button>
                     
                     <!-- Modal -->

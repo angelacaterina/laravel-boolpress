@@ -26,10 +26,10 @@
             <tr>
                 <td>{{$value->id}}</td>
                 <td>{{$value->genre}}</td>
-                <td>{{$value->over_18}}</td>
+                <td>{{$value->over_18 ? 'si' : 'no'}}</td>
                 <td>
-                    <a href="{{route('categories.show', ['category'=>$value->id])}}" class="btn btn-primary">View</a>
-                    <a href="{{route('categories.edit', ['category'=>$value->id])}}" class="btn btn-warning">Edit</a>
+                    <a href="{{route('categories.show', ['category'=>$value->id])}}" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                    <a href="{{route('categories.edit', ['category'=>$value->id])}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                     <!-- MODO 1: Eliminazione istantanea del Post -->
                     {{-- <form action="{{ route('categories.destroy', ['category'=> $value->id]) }}" method="post">
                         @csrf
@@ -40,7 +40,7 @@
                     <!-- MODO 2: Eliminazine con conferma del Post -->
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#destroy-{{$value->id}}">
-                    Delete
+                        <i class="fas fa-trash-alt"></i>
                     </button>
                     
                     <!-- Modal -->
