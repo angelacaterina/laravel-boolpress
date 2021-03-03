@@ -34,7 +34,7 @@
                 <td>{{$value->subtitle}}</td>
                 <td>{{$value->body}}</td>
                 <td>{{$value->author}}</td>
-                <td>{{$value->category['genre']}}</td>
+                <td>{{$value->category ? $value->category['genre'] : 'N/A'}}</td>
                 <td>{{$value->category ? $value->category['over_18'] ? 'si' : 'no' : ''}}</td>
                 <td>@if (count($value->tags) > 0)
                         @foreach ($value->tags as $tag)
